@@ -17,7 +17,8 @@ RUN git clone 'https://github.com/JrMasterModelBuilder/cmrudl.py' vendor/cmrudl.
 COPY requirements.txt .
 COPY extract /usr/local/bin
 RUN chmod +x /usr/local/bin/extract
-RUN pip3 install --no-cache-dir -r requirements.txt -U && \
+RUN pip3 install pip setuptools wheel -U
+RUN pip3 install --no-cache-dir -r requirements.txt && \
     apt-get -qq purge git
 
 RUN locale-gen en_US.UTF-8
